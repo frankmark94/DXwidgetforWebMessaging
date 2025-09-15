@@ -1,0 +1,64 @@
+{
+  "name": "PegaFranklin_Extensions_WebMessagingWidget",
+  "label": "WebMessaging",
+  "description": "Web Messaging widget loader",
+  "organization": "PegaFranklin",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "PegaFranklin_Extensions_WebMessagingWidget",
+  "type": "Widget",
+  "subtype": "PAGE",
+  "icon": "OneColumnPage.svg",
+  "properties": [
+      {
+        "name": "scriptSrc",
+        "label": "Widget script URL",
+        "format": "TEXT",
+        "required": true,
+        "defaultValue": "https://widget.use1.chat.pega.digital/e03b7c71-ac8b-4cb4-b890-d813ff3b9074/widget.js"
+      },
+      {
+        "name": "scriptId",
+        "label": "Script tag id",
+        "format": "TEXT",
+        "defaultValue": "pega-wm-chat"
+      },
+      {
+        "name": "async",
+        "label": "Load script with async",
+        "format": "CHECKBOX",
+        "defaultValue": true
+      },
+      {
+        "name": "defer",
+        "label": "Load script with defer",
+        "format": "CHECKBOX",
+        "defaultValue": true
+      },
+      {
+        "name": "autoLoad",
+        "label": "Auto-load on mount",
+        "format": "CHECKBOX",
+        "defaultValue": true
+      },
+      {
+        "name": "dataAttrs",
+        "label": "Data attributes (JSON map)",
+        "format": "TEXT",
+        "defaultValue": "{}"
+      },
+      {
+        "label": "Conditions",
+        "format": "GROUP",
+        "properties": [
+          {
+            "name": "visibility",
+            "label": "Visibility",
+            "format": "VISIBILITY"
+          }
+        ]
+      }
+  ],
+  "defaultConfig": {}
+}
