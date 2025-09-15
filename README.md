@@ -1,23 +1,96 @@
-# Using Custom Components in Constellation
+# Web Messaging Widget for Constellation DX
+
+A Constellation DX PAGE Widget that embeds Pega's Web Messaging widget into Constellation portals and landing pages with safe, configurable script injection.
 
 ## Overview
 
-This project provides you with an environment to extend Constellation by giving you tools to create and publish custom components that are not available from the Constellation installation.
+This project provides a custom Constellation DX component that allows you to embed Pega's hosted Web Messaging widget inside Constellation portals. The component safely injects the widget script once per session and provides configuration options for different environments (dev/uat/prod).
+
+## Features
+
+- **Safe Script Injection**: Prevents duplicate script loading with idempotent injection
+- **Configurable Properties**: Environment-specific script URLs, IDs, and loading behavior
+- **Data Attributes Support**: Optional JSON configuration for custom data-* attributes
+- **App Studio Integration**: Available in Channels → Landing Pages for easy deployment
+- **Storybook Demo**: Local validation and testing environment
+
+## Screenshots
+
+These screenshots demonstrate the following:
+
+### 1. Custom 'WebMessaging' DX widget available
+
+![Component Selection](docs/screenshots/component-selection.png)
+*Screenshot showing the "WebMessaging" DX widget appearing as an available component within the Pega Constellation component selection interface, ready to be added to a landing page or portal region.*
+
+### 2. Input variables for the widget URL
+
+![Configuration Panel](docs/screenshots/configuration-panel.png)
+*Screenshot of the component's property panel in App Studio, showing configurable fields for `scriptSrc`, `scriptId`, `async`, `defer`, `autoLoad`, and `dataAttrs`.*
+
+### 3. Widget loading onto the Constellation page
+
+![Widget in Portal](docs/screenshots/widget-in-portal.png)
+*Screenshot of a Constellation landing page with the Web Messaging widget successfully loaded and rendered, showing the chat interface integrated seamlessly into the portal.*
+
+## Configuration Properties
+
+The component exposes the following configurable properties:
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `scriptSrc` | TEXT | `https://widget.use1.chat.pega.digital/e03b7c71-ac8b-4cb4-b890-d813ff3b9074/widget.js` | URL of the widget script |
+| `scriptId` | TEXT | `pega-wm-chat` | ID attribute of the script tag |
+| `async` | CHECKBOX | `true` | Whether to set async on script |
+| `defer` | CHECKBOX | `true` | Whether to set defer on script |
+| `autoLoad` | CHECKBOX | `true` | Whether to auto-load script on mount |
+| `dataAttrs` | TEXT | `{}` | JSON map of data-* attributes to apply |
+
+## Usage
+
+### In App Studio
+
+1. Navigate to **Channels → Landing Pages**
+2. Select or create a landing page
+3. Add the **WebMessaging** component to a region
+4. Configure the properties in the component's property panel
+5. Save and preview the page
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start Storybook for local development
+npm run startStorybook
+
+# Build the component
+npm run buildComponent
+
+# Publish to Pega environment
+npm run publish
+```
+
+## Content Security Policy (CSP)
+
+**Important**: Ensure your Constellation portal's CSP headers allow the widget host URL:
+
+```
+script-src 'self' https://widget.use1.chat.pega.digital;
+```
+
+Add `https://widget.use1.chat.pega.digital` to your `script-src` allowlist to prevent CSP violations.
 
 ## Prerequisites
 
-Ensure you have access to the following in your system:
-
-- Pega Infinity Server version 24.2 or later
-
+- Pega Platform™ version 24.2 or later
 - Git version 2.30 or later
+- Node version 20 and npm version 10 (or node 18 with npm 8)
+- Supported browser (Chrome, Edge, Firefox, Safari)
 
-- System node version 18, 20
+## Documentation
 
-- System npm version 8, 10 (9 is not supported)
-
-- Recommended (node 20, npm 10)
-
-## Latest Documentation
-
-Find the latest documentation on using **DX Component Builder** [here](https://docs.pega.com/bundle/constellation-dx-components/page/constellation-dx-components/custom-components/whats-new-constellation-dx-component-builder.html)
+- [Constellation DX Components - Initialize a project](https://docs.pega.com/bundle/constellation-dx-components/page/constellation-dx-components/custom-components/initialize-project.html)
+- [Constellation DX Components - Types](https://docs.pega.com/bundle/constellation-dx-components/page/constellation-dx-components/custom-components/types-constellation-dx-components.html)
+- [Constellation DX Components - Latest Documentation](https://docs.pega.com/bundle/constellation-dx-components/page/constellation-dx-components/custom-components/whats-new-constellation-dx-component-builder.html)
