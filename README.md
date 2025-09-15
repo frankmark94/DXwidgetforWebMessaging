@@ -20,17 +20,20 @@ These screenshots demonstrate the following:
 
 ### 1. Custom 'WebMessaging' DX widget available
 
-![Component Selection](docs/screenshots/component-selection.png)
+<img width="525" height="543" alt="image" src="https://github.com/user-attachments/assets/f7af0d1a-19e2-4955-9b3d-d5c3b5f30099" />
+
 *Screenshot showing the "WebMessaging" DX widget appearing as an available component within the Pega Constellation component selection interface, ready to be added to a landing page or portal region.*
 
 ### 2. Input variables for the widget URL
 
-![Configuration Panel](docs/screenshots/configuration-panel.png)
+<img width="574" height="231" alt="image" src="https://github.com/user-attachments/assets/1e3c08ab-680b-4954-9518-9ed37ccc76cd" />
+
 *Screenshot of the component's property panel in App Studio, showing configurable fields for `scriptSrc`, `scriptId`, `async`, `defer`, `autoLoad`, and `dataAttrs`.*
 
 ### 3. Widget loading onto the Constellation page
 
-![Widget in Portal](docs/screenshots/widget-in-portal.png)
+<img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/b0d618a1-9444-4fb0-bb98-8224d014b8c6" />
+
 *Screenshot of a Constellation landing page with the Web Messaging widget successfully loaded and rendered, showing the chat interface integrated seamlessly into the portal.*
 
 ## Configuration Properties
